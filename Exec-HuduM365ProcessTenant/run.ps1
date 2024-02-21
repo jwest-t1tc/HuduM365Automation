@@ -662,9 +662,9 @@ try {
 
                     [System.Collections.Generic.List[PSCustomObject]]$CIPPLinksFormatted = @()
                     if ($EnableCIPP) {
-                        $CIPPLinksFormatted.add((Get-LinkBlock -URL "$($CIPPURL).auth/login/aad?post_login_redirect_uri=$($CIPPURL)identity/administration/users/view?userId=$($User.id)%26tenantDomain%3D$($Customer.defaultDomainName)" -Icon 'far fa-eye' -Title 'CIPP - View User'))
-                        $CIPPLinksFormatted.add((Get-LinkBlock -URL "$($CIPPURL).auth/login/aad?post_login_redirect_uri=$($CIPPURL)identity/administration/users/edit?userId=$($User.id)%26tenantDomain%3D$($Customer.defaultDomainName)" -Icon 'fas fa-user-cog' -Title 'CIPP - Edit User'))
-                        $CIPPLinksFormatted.add((Get-LinkBlock -URL "$($CIPPURL).auth/login/aad?post_login_redirect_uri=$($CIPPURL)identity/administration/ViewBec?userId=$($User.id)%26tenantDomain%3D$($Customer.defaultDomainName)" -Icon 'fas fa-user-secret' -Title 'CIPP - Research Compromise'))
+                        $CIPPLinksFormatted.add((Get-LinkBlock -URL "$($CIPPURL)/identity/administration/users/view?userId=$($User.id)&tenantDomain=$($Customer.defaultDomainName)&userEmail=$($User.userPrincipalName)" -Icon 'far fa-eye' -Title 'CIPP - View User'))
+                        $CIPPLinksFormatted.add((Get-LinkBlock -URL "$($CIPPURL)/identity/administration/users/edit?userId=$($User.id)&tenantDomain=$($Customer.defaultDomainName)" -Icon 'fas fa-user-cog' -Title 'CIPP - Edit User'))
+                        $CIPPLinksFormatted.add((Get-LinkBlock -URL "$($CIPPURL)/identity/administration/ViewBec?userId=$($User.id)&tenantDomain=$($Customer.defaultDomainName)&ID=$($User.userPrincipalName)" -Icon 'fas fa-user-secret' -Title 'CIPP - Research Compromise'))
                     }
 
                     [System.Collections.Generic.List[PSCustomObject]]$UserLinksFormatted = @()
