@@ -143,6 +143,7 @@ try {
         } catch {
             Write-Host $_.Exception.Message
             Throw 'Company: Failed to fetch bulk company data'
+            $CompanyResult.Errors.add("Microsoft: Company: Failed to fetch bulk company data $_")
         }
 
         $Users = Get-BulkResultByID -Results $TenantResults -ID 'Users'
